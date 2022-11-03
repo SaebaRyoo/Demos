@@ -2,7 +2,7 @@
 const React = require('react');
 const largeNumber = require('large-number');
 const logo = require('./images/logo.jpeg');
-const s = require('./search.less');
+require('./search.less');
 
 class Search extends React.Component {
 
