@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { List, Checkbox, Input, Button } from 'antd';
-import "./Todo.css"
+import classes from "./Todo.module.css"
 import { setInputValue, createTodo, fetchTodos, updateTodo, deleteTodoById } from './Todo.slice'
 import { useAppSelector, useAppDispatch } from '../../hooks/typedHooks';
 
@@ -20,9 +20,10 @@ const Todo: React.FC = () => {
   }
 
   return (
-    <div className="container">
+    <div className={classes.container} aria-label='test-todo'>
       <Input
         placeholder="请输入todo"
+        aria-label='create-todo'
         value={inputValue}
         onChange={(e) => dispatch(setInputValue(e.target.value))}
         onPressEnter={(e) => {
@@ -34,9 +35,9 @@ const Todo: React.FC = () => {
         itemLayout="horizontal"
         split={false}
         dataSource={data}
-        renderItem={(item) => (
+        renderItem={(item, index) => (
           <List.Item className={item.done ?'done' : ''}>
-            <Checkbox checked={item.done} onChange={(e) => handleChange(e.target.checked, item)} />
+            <Checkbox aria-label={`todo-checkbox-${index}`} checked={item.done} onChange={(e) => handleChange(e.target.checked, item)} />
             <span>{item.name}</span>
             <Button onClick={() => {dispatch(deleteTodoById(item.id))}} >删除</Button>
           </List.Item>

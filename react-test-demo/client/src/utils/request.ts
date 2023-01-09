@@ -21,6 +21,15 @@ const config: any = {
 // 构建实例
 const instance = axios.create(config);
 
+instance.interceptors.response.use(
+  (response) => {
+      if (response.status !== 200) return Promise.reject(response.data)
+      return response.data.data
+  },
+  (err) => {
+      Promise.reject(err.response)
+  }
+)
 // axios方法映射
 const InstanceMaper = {
   get: instance.get,

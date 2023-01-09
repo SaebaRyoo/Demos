@@ -1,5 +1,5 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import reducers from './reducers'
+import { configureStore, ThunkAction, Action, PreloadedState } from '@reduxjs/toolkit';
+import rootReducer from './reducers'
 
 /**
  * creates a Redux store, and also automatically
@@ -7,11 +7,20 @@ import reducers from './reducers'
  * that you can inspect the store while developing.
  **/
 const store = configureStore({
-  reducer: reducers
+  reducer: rootReducer
 });
+
+
+export function setupStore(preloadedState: PreloadedState<RootState> | {} = {}) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState
+  })
+}
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = ReturnType<typeof setupStore>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
 export type AppThunk<ReturnType = void> = ThunkAction<

@@ -182,7 +182,8 @@ export default {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\.(js|jsx|ts|tsx)$": "babel-jest", // 给jest添加一个转换器
+    // "^.+\.(js|jsx|ts|tsx)$": "babel-jest", // 给jest添加一个转换器
+    "^.+\.(js|jsx|ts|tsx)$": "esbuild-jest", // 基于 esbuild 来实现的 jest 转译工具,可以提升编译性能
     // "^.+\\.svg$": "<rootDir>/__mocks__/svgTransform.js" // jest无法识别svg，需要对svg进行mock
   },
 

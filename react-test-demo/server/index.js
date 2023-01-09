@@ -17,6 +17,7 @@ app.get('/todo', (req, res) => {
   res.send({
     status: 200,
     data: data,
+    msg: ''
   })
 })
 
@@ -35,6 +36,7 @@ app.post('/todo', (req, res) => {
   res.send({
     status: 200,
     data: data,
+    msg: ''
   })
 })
 
@@ -54,6 +56,7 @@ app.patch('/todo', (req, res) => {
   res.send({
     status: 200,
     data: data,
+    msg: ''
   })
 })
 
@@ -69,6 +72,7 @@ app.delete('/todo', (req, res) => {
   res.send({
     status: 200,
     data: data,
+    msg: ''
   })
 })
 

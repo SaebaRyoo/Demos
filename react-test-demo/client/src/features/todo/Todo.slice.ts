@@ -29,24 +29,24 @@ export const todoSlice = createSlice({
 });
 
 export const createTodo = (): AppThunk => async (dispatch, getState) => {
-  const res = await createTodoItem({name: selectInputValue(getState())});
-  dispatch(setTodos(res.data.data))
+  const result = await createTodoItem({name: selectInputValue(getState())});
+  dispatch(setTodos(result))
   dispatch(setInputValue(''));
 };
 
 export const fetchTodos = (): AppThunk => async (dispatch) => {
   const result = await findAllTodo()
-  dispatch(setTodos(result.data.data))
+  dispatch(setTodos(result))
 }
 
 export const updateTodo = (todo: API.TodoItem): AppThunk => async (dispatch) => {
   const result = await updateTodoById(todo)
-  dispatch(setTodos(result.data.data))
+  dispatch(setTodos(result))
 }
 
 export const deleteTodoById = (id: string): AppThunk => async (dispatch) => {
   const result = await deleteTodo({id})
-  dispatch(setTodos(result.data.data))
+  dispatch(setTodos(result))
 }
 
 
