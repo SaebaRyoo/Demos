@@ -20,6 +20,9 @@ afterAll(() => server.close())
 
 describe('<Todo/> ', () => {
   beforeAll(() => {
+    // Error: Uncaught [TypeError: window.matchMedia is not a function]
+    // The above error occurred in the <List> component:
+    //       at List (react-test-demo/client/node_modules/antd/lib/list/index.js:36:7)
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation(query => ({
@@ -34,7 +37,8 @@ describe('<Todo/> ', () => {
       })),
     });
   })
-  it(`it should render default value of preloadstate`, async () => {
+
+  it(`it should correctly with default value `, async () => {
     const preloadState = {
       todo: {
         inputValue: 'test',
@@ -48,12 +52,11 @@ describe('<Todo/> ', () => {
       }
     };
 
-    renderWithProviders(<Todo/>, {preloadedState: preloadState})
-    const testDom = await screen.findByRole("checkbox", {name: 'todo-checkbox-0'})
-    expect(testDom).not.toBeChecked()
+    const {container} = renderWithProviders(<Todo/>, {preloadedState: preloadState})
+    expect(container).toMatchSnapshot()
   })
 
-  it(`it should render mock data`, async () => {
+  it(`it should fetch mock data and render it correctly`, async () => {
 
     const { user } = renderWithProviders(<Todo/>)
     expect(await screen.findByText('To learn node')).toBeInTheDocument()
@@ -72,5 +75,20 @@ describe('<Todo/> ', () => {
 
   })
 
+  it(`it should change the status of todo`, async () => {
+    const { user } = renderWithProviders(<Todo/>)
+    const testDom = await screen.findByRole("checkbox", {name: 'todo-checkbox-0'})
+    expect(testDom).not.toBeChecked()
+    testDom.focus();
+    await user.click(testDom)
+    expect(testDom).toBeChecked()
+  })
 
+  it(`Todo should be deleted when button was clicked`, async () => {
+    const { user } = renderWithProviders(<Todo/>)
+    expect(await screen.findByText('To learn node')).toBeInTheDocument()
+    const delBtn0 = await screen.findByRole('button', {name: 'todo-btn-0'})
+    await user.click(delBtn0)
+    expect(await screen.findByText('No data')).toBeInTheDocument()
+  })
 })

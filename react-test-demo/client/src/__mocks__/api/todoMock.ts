@@ -39,7 +39,7 @@ export const todo = [
   }),
 
 
-  // mock 添加 todo
+  // mock 修改 todo
   rest.patch('/api/todo', (req, res, ctx) => {
     return res(
       // Respond with a 200 status code

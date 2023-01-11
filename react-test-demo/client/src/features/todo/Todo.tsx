@@ -39,7 +39,7 @@ const Todo: React.FC = () => {
           <List.Item className={item.done ?'done' : ''}>
             <Checkbox aria-label={`todo-checkbox-${index}`} checked={item.done} onChange={(e) => handleChange(e.target.checked, item)} />
             <span>{item.name}</span>
-            <Button onClick={() => {dispatch(deleteTodoById(item.id))}} >删除</Button>
+            <Button aria-label={`todo-btn-${index}`} onClick={() => {dispatch(deleteTodoById(item.id))}} >删除</Button>
           </List.Item>
         )}
       />

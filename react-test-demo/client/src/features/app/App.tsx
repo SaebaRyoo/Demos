@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import pic from './assets/pic.jpeg'
+import reactLogo from '../../assets/react.svg'
+import pic from '../../assets/pic.jpeg'
 import './App.css'
 
 function App() {

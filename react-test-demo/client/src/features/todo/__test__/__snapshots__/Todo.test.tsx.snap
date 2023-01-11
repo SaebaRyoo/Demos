@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todo/>  it should correctly with default value  1`] = `
+<div>
+  <div
+    aria-label="test-todo"
+    class="container"
+  >
+    <input
+      aria-label="create-todo"
+      class="ant-input css-dev-only-do-not-override-k83k30"
+      placeholder="请输入todo"
+      type="text"
+      value="test"
+    />
+    <div
+      class="ant-list css-dev-only-do-not-override-k83k30"
+    >
+      <div
+        class="ant-spin-nested-loading css-dev-only-do-not-override-k83k30"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <ul
+            class="ant-list-items"
+          >
+            <li
+              class="ant-list-item"
+            >
+              <label
+                class="ant-checkbox-wrapper css-dev-only-do-not-override-k83k30"
+              >
+                <span
+                  class="ant-checkbox css-dev-only-do-not-override-k83k30"
+                >
+                  <input
+                    aria-label="todo-checkbox-0"
+                    class="ant-checkbox-input"
+                    type="checkbox"
+                    value=""
+                  />
+                  <span
+                    class="ant-checkbox-inner"
+                  />
+                </span>
+              </label>
+              <span>
+                hello
+              </span>
+              <button
+                aria-label="todo-btn-0"
+                class="ant-btn css-dev-only-do-not-override-k83k30 ant-btn-default"
+                type="button"
+              >
+                <span>
+                  删 除
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
