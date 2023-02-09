@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-grow</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <script src="./js/randomColor.js"></script>
+  <style>
+    .container {
+      background: #fff;
+      border-radius: 10px;
+      height: 300px;
+      width: 600px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .item {
+      background: #e8f;
+      color: #000;
+      width: 100px;
+    }
+
+    .item2 {
+      flex-grow: 1;
+    }
+    .item3 {
+      flex-grow: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1>为项目分配剩余空间</h1>
+
+  <div class="container">
+    <div class="item item1">Flex 1</div>
+    <div class="item item2">Flex 2</div>
+    <div class="item item3">Flex 3</div>
+  </div>
+
+  <script>
+    const items = document.getElementsByClassName('item')
+    Array.from(items).forEach((item, index) => item.style.backgroundColor = colorsArr[index])
+
+    const root = document.documentElement;
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-shrink</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <script src="./js/randomColor.js"></script>
+  <style>
+    :root {
+
+      --flex-shrink: 1;
+    }
+    .container {
+      display: flex;
+      inline-size: 1000px;
+      font-size: 1.5rem;
+      border: 1px dashed #ccc;
+    }
+
+    .item {
+      color: #000;
+
+      /* 等同于 */
+      flex-grow: 0; /* flex-grow 的初始值 */
+      flex-shrink: var(--flex-shrink); /* flex-shrink 的初始值 */
+      flex-basis: 300px; /* 也可以使用 width 或 inline-size 来替代 */
+      width: 100px;
+    }
+    .item span {
+      font-size: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>为项目分配剩余空间</h1>
+  <div class="form">
+    <label class="toggle" for="flex-shrink">
+      <span class="toggle__label">flex-shrink: 1</span>
+      <input type="checkbox" role="switch" class="toggle__element" id="flex-shrink" checked />
+      <div class="toggle__decor" aria-hidden="true">
+        <div class="toggle__thumb"></div>
+      </div>
+    </label>
+  </div>
+  <div class="container">
+      <div class="item"><span>A</span>longlonglongword</div>
+      <div class="item"><span>B</span>ook</div>
+      <div class="item"><span>C</span>ountries in the east</div>
+      <div class="item"><span>D</span>iscuss</div>
+      <div class="item"><span>E</span>astern</div>
+  </div>
+
+  <script>
+    const items = document.getElementsByClassName('item')
+    Array.from(items).forEach((item, index) => item.style.backgroundColor = colorsArr[index])
+
+    const root = document.documentElement;
+    const flexShrink = document.getElementById("flex-shrink");
+
+    flexShrink.addEventListener("click", () => {
+      root.style.setProperty("--flex-shrink", flexShrink.checked ? "1" : "0");
+    });
+
+  </script>
+</body>
+</html>
