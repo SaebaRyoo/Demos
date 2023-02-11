@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .device {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    header {
+      height: 80px;
+      background-color: #e23455;
+    }
+    main {
+      flex: 1 1;
+      overflow: auto;
+    }
+    footer {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: #e23455;
+    }
+    footer .item {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="device">
+    <header>Header</header>
+    <main>
+      <p>a long text</p>
+      <p>a long text</p>
+      <p>a long text</p>
+      <p>a long text</p>
+      <p>a long text</p>
+    </main>
+    <footer>
+      <div class="item">
+        <div>图片</div>
+        <div>首页</div>
+      </div>
+      <div class="item">
+        <div>图片</div>
+        <div>分类</div>
+      </div>
+      <div class="item">
+        <div>图片</div>
+        <div>消息</div>
+      </div>
+      <div class="item">
+        <div>图片</div>
+        <div>购物车</div>
+      </div>
+      <div class="item">
+        <div>图片</div>
+        <div>我的淘宝abc</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

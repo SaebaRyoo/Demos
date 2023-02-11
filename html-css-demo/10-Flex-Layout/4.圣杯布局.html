@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .home-page {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100vh;
+    }
+    header {
+      height: 80px;
+      background: #e289e2;
+    }
+    main {
+      flex: 1 1 100%;
+      display: flex;
+    }
+    aside:nth-of-type(1) {
+      width: 200px;
+      background: #dd3;
+      order: -1;
+    }
+    article {
+      flex: 1 1 auto;
+    }
+    aside:nth-of-type(2) {
+      width: 300px;
+      background: #aeee;
+    }
+    footer {
+      height: 80px;
+      background: #d43d;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-page">
+    <header>header</header>
+    <main>
+      <article>
+        <!-- 内容列 -->
+        a very long text
+      </article>
+      <aside>导航栏</aside>
+      <aside>右侧内容栏</aside>
+    </main>
+    <footer>footer</footer>
+  </div>
+</body>
+</html>
