@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns:[line1] 180px [line2] 20% [line3] auto [line4] 1fr [line5] 10vw [line6];
+      grid-template-rows: [row1-start] 200px [row1-end row2-start] minmax(100px, auto) [row2-end row3-start] 20vh [row3-end];
+    }
+
+    .item1 {
+      background: #e7c98c;
+    }
+    .item2 {
+      background: #a21eee;
+    }
+    .item3 {
+      background: #e690dd;
+    }
+    .item4 {
+      background: #a7b7c7;
+    }
+    .item5 {
+      background: #23cccc;
+    }
+    .item6 {
+      background: #5fddc3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">grid cell 1</div>
+    <div class="item item2">grid cell 2</div>
+    <div class="item item3">grid cell 3</div>
+    <div class="item item4">grid cell 4</div>
+    <div class="item item5">grid cell 5</div>
+    <div class="item item6">grid cell 6</div>
+  </div>
+</body>
+</html>

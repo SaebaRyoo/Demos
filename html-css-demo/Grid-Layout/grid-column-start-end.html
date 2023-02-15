@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: grid;
+      height: 100vh;
+      grid-template-columns:
+        [header-start nav-start footer-start] 220px
+        [nav-end main-start ] 1fr
+        [main-end aside-start] 220px
+        [header-end aside-end footer-end];
+      grid-template-rows:
+        [header-start] 80px
+        [header-end nav-start main-start aside-start] 1fr
+        [nav-end main-end aside-end footer-start] 80px
+        [footer-end];
+    }
+
+
+    header {
+      grid-column-start: header-start;
+      grid-column-end: header-end;
+      grid-row-start: header-start;
+      grid-row-end: header-end;
+      background: #e287ea;
+    }
+
+    nav {
+      grid-column-start: nav-start;
+      grid-column-end: nav-end;
+      grid-row-start: nav-start;
+      grid-row-end: nav-end;
+      background: #87eeee;
+    }
+    main {
+      grid-column-start: main-start;
+      grid-column-end: main-end;
+      grid-row-start: main-start;
+      grid-row-end: main-end;
+      background: #7633ae;
+    }
+    aside {
+      grid-column-start: aside-start;
+      grid-column-end: aside-end;
+      grid-row-start: aside-start;
+      grid-row-end: aside-end;
+      background: #ee323a;
+    }
+    footer {
+      grid-column-start: footer-start;
+      grid-column-end: footer-end;
+      grid-row-start: footer-start;
+      grid-row-end: footer-end;
+      background: #e67;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="container">
+    <header>header</header>
+    <main>Main</main>
+    <nav>Nav</nav>
+    <aside>aside</aside>
+    <footer>footer</footer>
+  </div>
+</body>
+</html>
