@@ -1,25 +1,14 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
-import { sum } from '@lxnxbnq/utils';
 
 function App() {
-  console.log(sum(1,2,3))
+  const [value, setV] = useState(null)
+  const handleChange = (e) => {setV(e.target.value)}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" value={value} onChange={handleChange} />
+      <p>{value}</p>
     </div>
   );
 }
