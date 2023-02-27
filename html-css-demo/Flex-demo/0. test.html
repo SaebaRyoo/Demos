@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-direction</title>
+  <script src="./js/randomColor.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      height: 100vh;
+      width: 100vw;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      grid-template-rows: 80px 1fr 80px;
+      /* gap: 10px; */
+      column-gap: 10px;
+      grid-template-areas:
+        'header header'
+        'nav main'
+        'nav footer';
+    }
+
+    header {
+      grid-area: header;
+    }
+
+    nav {
+      grid-area: nav;
+    }
+
+    article {
+      grid-area: main;
+    }
+
+    footer {
+      grid-area: footer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="item">头部</header>
+    <article class="item">正文</article>
+    <nav class="item">导航</nav>
+    <footer class="item">页脚</footer>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const items = document.getElementsByClassName('item')
+    Array.from(items).forEach((item, index) => {
+      item.style.background = colorsArr[index]
+    })
+  </script>
+</body>
+</html>

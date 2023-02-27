@@ -4,8 +4,14 @@ import pic from '../../assets/pic.jpeg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [value, setValue] = useState('')
 
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const markup = { __html: value};
   return (
     <div className="App">
       <div>
@@ -31,6 +37,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div dangerouslySetInnerHTML={markup}></div>
+      <textarea value={value} onChange={handleChange} name="" id="" cols="30" rows="10"></textarea>
     </div>
   )
 }

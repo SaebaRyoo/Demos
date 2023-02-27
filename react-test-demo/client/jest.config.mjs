@@ -92,6 +92,9 @@ export default {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
+    // 支持webpack的resolve.alias
+    // key是各个alias，然后将通过正则将 别名 中的 相对路径 替换到$1占位符中
+    '^@/(.*)$': '<rootDir>/$1',
     "\.(css|less|scss|sass)$": "identity-obj-proxy" , // 对css文件使用identity-obj-proxy进行代理,该包的作用是将对象的访问直接返回对应的字符串，比如 styles.title 将会返回 title 字符串
     "\\.(png|jpg|jpeg|gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/fileMock.js" // 对资源文件进行mock
   },
