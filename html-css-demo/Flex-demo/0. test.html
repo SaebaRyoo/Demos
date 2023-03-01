@@ -11,30 +11,29 @@
       margin: 0;
       padding: 0;
     }
+
     .container {
-      height: 100vh;
       width: 100vw;
+      height: 100vh;
       display: grid;
       grid-template-columns: 220px 1fr;
       grid-template-rows: 80px 1fr 80px;
-      /* gap: 10px; */
-      column-gap: 10px;
       grid-template-areas:
         'header header'
-        'nav main'
-        'nav footer';
+        'aside content'
+        'footer footer';
     }
 
     header {
       grid-area: header;
     }
 
-    nav {
-      grid-area: nav;
+    aside {
+      grid-area: aside;
     }
 
     article {
-      grid-area: main;
+      grid-area: content;
     }
 
     footer {
@@ -45,10 +44,10 @@
 </head>
 <body>
   <div class="container">
-    <header class="item">头部</header>
-    <article class="item">正文</article>
-    <nav class="item">导航</nav>
-    <footer class="item">页脚</footer>
+    <header class="item">header</header>
+    <aside class="item">aside</aside>
+    <article class="item">article</article>
+    <footer class="item">footer</footer>
   </div>
   <script>
     const root = document.documentElement;
