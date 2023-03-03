@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #outer {
+      margin: 200px;
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      color: #000;
+      font-size: 24px;
+    }
+
+    #inner {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      transform: translate(-50%);
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">触发重排、重绘</button>
+  <div id="outer">
+
+    <p>hello world</p>
+
+    <div id="inner">
+      a long long text
+    </div>
+    <div id="inner1">
+      an other text
+    </div>
+  </div>
+  <script>
+    const outer = document.getElementById('outer')
+    const inner1 = document.getElementById('inner1')
+    const btn1 = document.getElementById('btn1')
+
+    btn1.addEventListener('click', () => {
+      inner1.style.width = '100px'
+
+    })
+  </script>
+</body>
+</html>
