@@ -1,92 +1,37 @@
-import React from "react";
+import { useState, useTransition, useMemo } from "react";
 
-import Charts from "./Charts";
-import Clock from "./Clock";
-import _ from "lodash";
+const numbers = [...new Array(20000).keys()];
 
-const {
-  useEffect,
-  useState,
-  useTransition
-} = React;
+export default function App() {
+    const [query, setQuery] = useState("");
+    const [isPending, startTransition] = useTransition();
 
-let cachedData = new Map();
-const App = () => {
-  const [value, setValue] = useState("")
-  const [showDemo, setShowDemo] = useState(true)
-  const [showClock, setShowClock] = useState(false)
-  const [isPending, startTransition] = useTransition();
+    const handleChange = (e) => {
+        startTransition(() => {
+            setQuery(e.target.value);
+        });
+    };
 
-  // Random data for the chart
-  const getStreamData = (input) => {
-    if (cachedData.has(input)) {
-      return cachedData.get(input);
-    }
-    const multiplier = input.length !== 0 ? input.length : 1;
-    const complexity =
-      (parseInt(window.location.search.substring(1), 10) / 100) * 25 || 25;
-    const data = _.range(5).map(t =>
-      _.range(complexity * multiplier).map((j, i) => {
-        return {
-          x: j,
-          y: (t + 1) * _.random(0, 255)
-        };
-      })
-    );
-    cachedData.set(input, data);
-    return data;
-  }
+    const list = useMemo(() => (
+        numbers.map((i, index) => (
+            query
+                ? i.toString().startsWith(query)
+                && <p key={index}>{i}</p>
+                : <p key={index}>{i}</p>
+        ))
+    ), [query]);
 
-  useEffect(() => {
-
-    window.addEventListener("keydown", e => {
-      if (e.key.toLowerCase() === "?") {
-        e.preventDefault();
-        setShowClock(!showClock);
-      }
-    });
-
-  })
-
-  const handleChartClick = e => {
-    if (showDemo) {
-      if (e.shiftKey) {
-        setShowDemo(false);
-      }
-      return;
-    }
-    if (this._ignoreClick) {
-      return;
-    }
-    this._ignoreClick = true;
-
-  };
-
-  const handleChange = e => {
-    const value = e.target.value;
-    startTransition(() => {
-
-      setValue(value)
-    })
-  };
-  const data = getStreamData(value);
-
-  return (
-    <div className="container">
-      <input
-        placeholder="longer input → more components and DOM nodes"
-        onChange={handleChange}
-      />
-      <div className="demo" onClick={handleChartClick}>
-        {showDemo && (
-          <Charts data={data} onClick={handleChartClick} />
-        )}
-        <div style={{ display: showClock ? "block" : "none" }}>
-          <Clock />
+    return (
+        <div>
+            <input type="number" onChange={handleChange} />
+            <div>
+                {
+                    isPending
+                        ? "Loading..."
+                        : list
+                }
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export default App;
