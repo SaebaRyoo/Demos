@@ -1,15 +1,16 @@
 import { useState, useTransition, useMemo } from "react";
 
-const numbers = [...new Array(20000).keys()];
+const numbers = [...new Array(2000).keys()];
 
 export default function App() {
     const [query, setQuery] = useState("");
     const [isPending, startTransition] = useTransition();
 
+    debugger
     const handleChange = (e) => {
-        startTransition(() => {
-            setQuery(e.target.value);
-        });
+      startTransition(() => {
+          setQuery(e.target.value);
+      });
     };
 
     const list = useMemo(() => (

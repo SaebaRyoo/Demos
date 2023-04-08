@@ -1,0 +1,12 @@
+
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "ESNext",
+    "alwaysStrict": true,
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

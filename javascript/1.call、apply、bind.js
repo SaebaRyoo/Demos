@@ -29,3 +29,13 @@ Function.prototype.myBind = function(context, ...oArgs) {
     return _this.myApply(context, args)
   }
 }
+
+
+Function.prototype.apply = function(context, ...args) {
+  context = context || window;
+  context.fn = this;
+
+  var result = context.fn(...args)
+  delete context.fn;
+  return result
+}
