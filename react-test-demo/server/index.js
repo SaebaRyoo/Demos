@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.disable('etag')
 
 app.get('/todo', (req, res) => {
+  console.log('coming todo')
   let data = fs.readFileSync('./data.json', 'utf-8')
   data = JSON.parse(data);
   res.send({
