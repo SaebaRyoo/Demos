@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.leftArrow {
+  left: 0;
+}
+.rightArrow {
+  right: 0;
+  z-index: 0;
+}
+
+.linerGrid {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+}
+
+.leftGradient {
+  left: 40px;
+  z-index: 1;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.2));
+}
+
+.rightGradient {
+  right: 40px;
+  background: linear-gradient(269.21deg, #ffffff, rgba(255, 255, 255, 0.2));
+}

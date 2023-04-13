@@ -1,46 +1,35 @@
-import React, { useState } from 'react'
-import reactLogo from '../../assets/react.svg'
-import pic from '../../assets/pic.jpeg'
-import './App.css'
+import React, { useState } from "react";
+import reactLogo from "../../assets/react.svg";
+import pic from "../../assets/pic.jpeg";
+import "./App.css";
+import { SliderContainer } from "../../components/SilderContainer";
 
+const list = [
+  { key: "1", name: "列表项1" },
+  { key: "2", name: "列表项2" },
+  { key: "3", name: "列表项3" },
+  { key: "4", name: "列表项4" },
+  { key: "5", name: "列表项5" },
+  { key: "6", name: "列表项6" },
+  { key: "7", name: "列表项7" },
+  { key: "8", name: "列表项8" },
+  { key: "9", name: "列表项9" },
+  { key: "10", name: "列表项10" },
+];
 function App() {
-  const [count, setCount] = useState(0);
-  const [value, setValue] = useState('')
-
-  const handleChange = (e) => {
-    setValue(e.target.value)
-  }
-
-  const markup = { __html: value};
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={pic} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div dangerouslySetInnerHTML={markup}></div>
-      <textarea value={value} onChange={handleChange} name="" id="" cols="30" rows="10"></textarea>
+      <SliderContainer width={300}>
+        <>
+          {list.map((item) => (
+            <div style={{ width: 100 }} key={item.key}>
+              {item.name}
+            </div>
+          ))}
+        </>
+      </SliderContainer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
