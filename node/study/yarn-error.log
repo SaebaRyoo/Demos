@@ -1,0 +1,51 @@
+Arguments: 
+  /Users/zhuqingyuan/.nvm/versions/node/v18.15.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @typings/form-data form-data
+
+PATH: 
+  /Users/zhuqingyuan/.nvm/versions/node/v18.15.0/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/zhuqingyuan/.nvm/versions/node/v14.19.1/bin:/usr/local/mysql/bin:/usr/local/mysql/support-files:/usr/local/sbin:/Users/zhuqingyuan/Documents/maven/apache-maven-3.6.3/bin:/usr/local/redis-6.2.4/src:/usr/local/mysql/bin:/usr/local/mysql/support-files:/usr/local/sbin:/Users/zhuqingyuan/Documents/maven/apache-maven-3.6.3/bin:/usr/local/redis-6.2.4/src
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.15.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.npm.taobao.org/@typings%2fform-data: Not found
+      at params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:66145:18)
+      at self.callback (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.19/libexec/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "demo",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "start": "ts-node ./main.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@types/node": "^18.15.11",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
