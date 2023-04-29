@@ -1,39 +1,31 @@
-
 <!DOCTYPE html>
 <html>
-    <body>
-        <div id='demo'>
-            <ol>
-                <li>test</li>
-            </ol>
-        </div>
-    </body>
-    <script type="text/javascript">
-      var compareVersion = function(version1, version2) {
-          var v1Arr = version1.split('.')
-          var v2Arr = version2.split('.')
+  <body>
+    <div id="demo">
+      <ol>
+        <li>test</li>
+      </ol>
+    </div>
+  </body>
+  <script type="text/javascript">
+    async function a4() {
+      console.log("a4");
+    }
+    async function a2() {
+      console.log("a2");
+      await a4();
+      console.log("a2 end");
+    }
 
-          var maxLen = Math.max(v1Arr.length, v2Arr.length)
-          var idx = 0;
-          while (idx < maxLen) {
-              var v1Item = parseInt(v1Arr[idx]) || 0
-              var v2Item = parseInt(v2Arr[idx]) || 0
+    async function a1() {
+      console.log("a1");
 
+      await a2();
 
+      console.log("a3");
+    }
+    a1();
 
-              if (v1Item > v2Item ) {
-                  return 1
-              }
-
-              if (v1Item < v2Item) {
-                  return -1
-              }
-
-              idx++
-          }
-          return 0
-      };
-      const result = compareVersion('3', '2.7.070')
-      console.log(result)
-    </script>
+    console.log("start");
+  </script>
 </html>

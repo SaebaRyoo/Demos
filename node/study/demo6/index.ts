@@ -117,26 +117,16 @@ import { RequestOptions } from "https";
 // req.end();
 
 import * as FormData from "form-data";
-import { createReadStream } from "fs";
+import { createReadStream, createWriteStream } from "fs";
 
-const readStream = createReadStream("./photo.jpg");
+const readStream = createReadStream("./photo.jpeg");
+const writeStream = createWriteStream("./file.txt");
 
 const form = new FormData();
 form.append("photo", readStream);
 form.append("firstName", "Marcin");
 form.append("lastName", "Wanago");
 
-const req = request(
-  {
-    host: "localhost",
-    port: "5000",
-    path: "/upload",
-    method: "POST",
-    headers: form.getHeaders(),
-  },
-  (response) => {
-    console.log(response.statusCode); // 200
-  }
-);
+console.log(form.getHeaders());
 
-form.pipe(req);
+form.pipe(writeStream);

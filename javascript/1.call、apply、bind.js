@@ -1,41 +1,27 @@
-
 //
-Function.prototype.myCall = function(context, ...args) {
+Function.prototype.myCall = function (context, ...args) {
   context = context || window;
 
   context.fn = this;
 
-  let result = context.fn(...args)
-  delete context.fn
+  let result = context.fn(...args);
+  delete context.fn;
   return result;
-}
+};
 
-
-
-Function.prototype.myApply = function(context, args = []) {
+Function.prototype.myApply = function (context, args = []) {
   context = context || window;
   context.fn = this;
 
-  let result = context.fn(...args)
+  let result = context.fn(...args);
   delete context.fn;
-  return result
-}
+  return result;
+};
 
-
-Function.prototype.myBind = function(context, ...oArgs) {
+Function.prototype.myBind = function (context, ...oArgs) {
   let _this = this;
-  return function(...iArgs) {
+  return function (...iArgs) {
     let args = oArgs.concat(iArgs);
-    return _this.myApply(context, args)
-  }
-}
-
-
-Function.prototype.apply = function(context, ...args) {
-  context = context || window;
-  context.fn = this;
-
-  var result = context.fn(...args)
-  delete context.fn;
-  return result
-}
+    return _this.myApply(context, args);
+  };
+};
