@@ -5,6 +5,7 @@ import Home from "../pages/home";
 import Protected from "../pages/protected";
 import UnauthorizedPage from "../pages/error/UnauthorizedPage";
 import NotFound from "../pages/error/404";
+import MyAuthButtonPage from "../pages/foo/auth-button";
 
 export type RoutesType = {
   path: string;
@@ -20,22 +21,20 @@ const routers: RoutesType[] = [
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/foo",
+    element: <Foo />,
     children: [
       {
-        path: "/foo",
-        element: <Foo />,
-        children: [
-          {
-            path: "/foo/test",
-            element: <>test</>,
-          },
-        ],
-      },
-      {
-        path: "/protected",
-        element: <Protected />,
+        path: "/foo/auth-button",
+        element: <MyAuthButtonPage />,
       },
     ],
+  },
+  {
+    path: "/protected",
+    element: <Protected />,
   },
 
   {

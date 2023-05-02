@@ -2,17 +2,39 @@ import { AppThunk, RootState } from "../../stores/store";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
-interface TodoState {
+interface LoginState {
   username: string;
   role: string;
-  menuLists: string[];
+  menuLists: any[];
 }
 
 // Define the initial state using that type
-const initialState: TodoState = {
+const initialState: LoginState = {
   username: "ryo",
   role: "admin",
-  menuLists: ["/", "/login", "/foo", "/foo/test"],
+  menuLists: [
+    {
+      id: "1",
+      name: "首页",
+      icon: "icon-home",
+      url: "/",
+      parent_id: "0",
+    },
+    {
+      id: "2",
+      name: "foo",
+      icon: "icon-foo",
+      url: "/foo",
+      parent_id: "0",
+    },
+    {
+      id: "2-1",
+      name: "auth-button",
+      icon: "icon-auth-button",
+      url: "/foo/auth-button",
+      parent_id: "2",
+    },
+  ],
 };
 
 export const loginSlice = createSlice({
@@ -22,9 +44,7 @@ export const loginSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-// export const { setInputValue, setTodos } = loginSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectInputValue = (state: RootState) => state.todo.inputValue;
 
 export default loginSlice.reducer;

@@ -21,9 +21,24 @@ const config: any = {
 // 构建实例
 const instance = axios.create(config);
 
+instance.interceptors.request.use(
+  (request: any) => {
+    request.headers["access_token"] = localStorage.getItem("access_token");
+    return request;
+  },
+  (err) => {
+    Promise.reject(err.response);
+  }
+);
+
 instance.interceptors.response.use(
   (response) => {
     if (response.status !== 200) return Promise.reject(response.data);
+
+    if (response.data.code === 401) {
+      //token过期或者错误
+      window.location.replace("/login");
+    }
     return response.data.data;
   },
   (err) => {
