@@ -23,6 +23,7 @@ const AuthRoute = ({ children, path }: any) => {
   useEffect(() => {
     // 用户未登录
     if (token === "") {
+      message.destroy();
       message.error("token 过期，请重新登录!");
       navigate("/login");
     }

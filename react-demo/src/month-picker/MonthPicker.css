@@ -1,0 +1,90 @@
+.month-picker {
+  position: relative;
+}
+
+.month-picker-input {
+  position: relative;
+  display: inline-block;
+  padding: 4px 11px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.month-picker-input span {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-top-color: #999;
+  margin-top: -2px;
+  pointer-events: none;
+}
+
+.month-picker-dropdown {
+  z-index: 1;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 250px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.month-picker-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+}
+
+.month-picker-header button {
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.month-picker-header button:hover {
+  color: #1890ff;
+}
+
+.month-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  padding: 6px;
+  background-color: #f9f9f9;
+}
+
+.month-picker-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  height: 40px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.month-picker-cell:hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.month-picker-cell.selected {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.month-picker-cell.selected:hover {
+  background-color: #40a9ff;
+  color: #fff;
+}
