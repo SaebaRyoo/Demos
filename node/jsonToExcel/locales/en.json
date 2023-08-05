@@ -1,0 +1,9 @@
+{
+  "features": {
+    "user": {
+      "name": "name",
+      "age": "age",
+      "work": "enginner"
+    }
+  }
+}
