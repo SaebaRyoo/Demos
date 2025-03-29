@@ -1,11 +1,191 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <title>React + Node.js App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="梦幻酒店 - 体验非凡的奢华住宿，位于上海市中心，提供豪华客房、高级套房和总统套房选择，配备五星级餐厅、水疗中心和无边际泳池。"
+    />
+    <meta
+      name="keywords"
+      content="梦幻酒店,豪华酒店,上海酒店,五星级酒店,水疗中心,无边际泳池,豪华客房,高级套房,总统套房,酒店预订"
+    />
+    <meta name="author" content="梦幻酒店集团" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://www.dreamhotel.com<%= typeof canonicalPath !== 'undefined' ? canonicalPath : '' %>"
+    />
+
+    <!-- 社交媒体分享标签 - Open Graph -->
+    <meta property="og:title" content="梦幻酒店 | 豪华住宿体验" />
+    <meta
+      property="og:description"
+      content="梦幻酒店 - 体验非凡的奢华住宿，位于上海市中心，提供豪华客房和卓越服务。"
+    />
+    <meta
+      property="og:image"
+      content="https://www.dreamhotel.com/images/hotel-exterior.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://www.dreamhotel.com<%= typeof canonicalPath !== 'undefined' ? canonicalPath : '' %>"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="梦幻酒店" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- 社交媒体分享标签 - Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="梦幻酒店 | 豪华住宿体验" />
+    <meta
+      name="twitter:description"
+      content="梦幻酒店 - 体验非凡的奢华住宿，位于上海市中心，提供豪华客房和卓越服务。"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.dreamhotel.com/images/hotel-exterior.jpg"
+    />
+
+    <!-- 移动应用关联 -->
+    <meta
+      name="apple-itunes-app"
+      content="app-id=123456789, app-argument=https://www.dreamhotel.com<%= typeof canonicalPath !== 'undefined' ? canonicalPath : '' %>"
+    />
+
+    <!-- 浏览器配置 -->
+    <meta name="theme-color" content="#e67e22" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- 网站图标 -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon-16x16.png"
+    />
+
+    <title>梦幻酒店 | 豪华住宿体验</title>
+
+    <!-- 结构化数据 - 酒店信息 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "梦幻酒店",
+        "description": "体验非凡的奢华住宿，位于上海市中心，提供豪华客房、高级套房和总统套房选择，配备五星级餐厅、水疗中心和无边际泳池。",
+        "url": "https://www.dreamhotel.com",
+        "image": "https://www.dreamhotel.com/images/hotel-exterior.jpg",
+        "priceRange": "¥¥¥¥",
+        "telephone": "+86 21 5888 8888",
+        "email": "info@dreamhotel.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "世纪大道100号",
+          "addressLocality": "上海",
+          "postalCode": "200120",
+          "addressCountry": "CN"
+        },
+        "starRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "豪华水疗中心",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "五星级餐厅",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "无边际泳池",
+            "value": true
+          }
+        ],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.dreamhotel.com/booking",
+            "inLanguage": "zh-CN",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "LodgingReservation",
+            "name": "酒店预订"
+          }
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="<%= assets['client.js'] %>" as="script" />
+    <link rel="preload" href="/images/hotel-exterior.jpg" as="image" />
   </head>
   <body>
     <div id="root"><%- component %></div>
-    <script defer="defer" src="<%= assets["client.js"] %>"></script>
+    <script defer="defer" src="<%= assets['client.js'] %>"></script>
+
+    <!-- 结构化数据 - 面包屑导航 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首页",
+            "item": "https://www.dreamhotel.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "客房",
+            "item": "https://www.dreamhotel.com/rooms"
+          }
+        ]
+      }
+    </script>
   </body>
 </html>
